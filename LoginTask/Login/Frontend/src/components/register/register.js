@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./register.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -7,10 +7,11 @@ const Register = () => {
   const history = useHistory();
 
   const [user, setUser] = useState({
-    firstname: "",
+    name: "",
     email: "",
     password: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -27,7 +28,7 @@ const Register = () => {
         history.push("/login");
       });
     } else {
-      alert("invalid input");
+      alert("invlid input");
     }
   };
 
@@ -37,8 +38,8 @@ const Register = () => {
       <h1>Register</h1>
       <input
         type="text"
-        name="firstname"
-        value={user.firstname}
+        name="name"
+        value={user.name}
         placeholder="Your Name"
         onChange={handleChange}
       ></input>
